@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+// Conventional props destructuring 
+
+function Heading({title}: {title?: string}){
+  return(
+    <h1>{title}</h1>
+  )
+}
+
+// Children Title 
+function HeadingWithContent({children}: {children: ReactNode}): ReactElement{
+  // React Node will take any thing
+  return(
+    <h1>{children}</h1>
+  )
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Heading title='Hello There'/>
+      <HeadingWithContent>COOL</HeadingWithContent>
     </div>
   );
 }
